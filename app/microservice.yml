@@ -16,7 +16,6 @@ spec:
         - name: simple-time-service-container
           image: priyanshushriv/simpletimeservice
           resources:
-            resources:
             requests:
               memory: "128Mi"
               cpu: "200m"
