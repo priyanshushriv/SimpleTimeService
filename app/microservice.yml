@@ -2,8 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-time-service-deployment
+  annotations:
+    deployment.kubernetes.io/revision: "simple-time-service created"
 spec:
-  replicas: 1
+  replicas: 3
+  minReadySeconds: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
   selector:
     matchLabels:
       app: simple-time-service
